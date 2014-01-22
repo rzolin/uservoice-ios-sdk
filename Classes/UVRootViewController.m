@@ -86,7 +86,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 70, loading.frame.size.width, 20)];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:15];
-    label.textColor = [UIColor darkGrayColor];
+    label.textColor = [UVStyleSheet instance].detailLabelColor;
     label.textAlignment = NSTextAlignmentCenter;
     label.text = NSLocalizedStringFromTable(@"Loading...", @"UserVoice", nil);
     [label sizeToFit];

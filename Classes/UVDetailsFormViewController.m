@@ -8,6 +8,7 @@
 
 #import "UVDetailsFormViewController.h"
 #import "UVValueSelectViewController.h"
+#import "UVStyleSheet.h"
 
 #define LABEL 100
 #define VALUE 101
@@ -127,10 +128,10 @@
     label.text = field[@"required"] ? [NSString stringWithFormat:NSLocalizedStringFromTable(@"%@ (required)", @"UserVoice", nil), field[@"name"]] : field[@"name"];
     if (_selectedFieldValues[field[@"name"]]) {
         value.text = _selectedFieldValues[field[@"name"]][@"label"];
-        value.textColor = [UIColor blackColor];
+        value.textColor = [UVStyleSheet instance].detailLabelColor;
     } else {
         value.text = NSLocalizedStringFromTable(@"select", @"UserVoice", nil);
-        value.textColor = [UIColor colorWithRed:0.78f green:0.78f blue:0.80f alpha:1.0f];
+        value.textColor = [UVStyleSheet instance].detailLabelColor; //[UIColor colorWithRed:0.78f green:0.78f blue:0.80f alpha:1.0f];
     }
 }
 
@@ -157,6 +158,7 @@
     UITextField *text = (UITextField *)[cell viewWithTag:TEXT];
     label.text = field[@"required"] ? [NSString stringWithFormat:NSLocalizedStringFromTable(@"%@ (required)", @"UserVoice", nil), field[@"name"]] : field[@"name"];
     text.text = _selectedFieldValues[field[@"name"]][@"label"];
+    text.textColor = [UVStyleSheet instance].titleLabelColor;
     [[NSNotificationCenter defaultCenter] addObserverForName:UITextFieldTextDidChangeNotification object:text queue:nil usingBlock:^(NSNotification *note) {
         _selectedFieldValues[field[@"name"]] = @{ @"id" : text.text, @"label" : text.text};
     }];
@@ -168,11 +170,13 @@
     _emailField.autocorrectionType = UITextAutocorrectionTypeNo;
     _emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     _emailField.text = self.userEmail;
+    _emailField.textColor = [UVStyleSheet instance].titleLabelColor;
 }
 
 - (void)initCellForName:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath {
     self.nameField = [self configureView:cell.contentView label:NSLocalizedStringFromTable(@"Name", @"UserVoice", nil) placeholder:NSLocalizedStringFromTable(@"“Anonymous”", @"UserVoice", nil)];
     _nameField.text = self.userName;
+    _nameField.textColor = [UVStyleSheet instance].titleLabelColor;
 }
 
 #pragma mark ===== Misc =====

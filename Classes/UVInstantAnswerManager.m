@@ -16,6 +16,7 @@
 #import "UVSuggestionDetailsViewController.h"
 #import "UVInstantAnswersViewController.h"
 #import "UVUtils.h"
+#import "UVStyleSheet.h"
 
 #define TITLE 20
 #define SUBSCRIBER_COUNT 21
@@ -170,6 +171,7 @@
     UILabel *status = (UILabel *)[cell.contentView viewWithTag:STATUS];
     UIView *statusColor = [cell.contentView viewWithTag:STATUS_COLOR];
     title.text = suggestion.title;
+    title.textColor = [UVStyleSheet instance].titleLabelColor;
     subs.text = [NSString stringWithFormat:@"%d", (int)suggestion.subscriberCount];
     [statusColor.layer.sublayers.lastObject setBackgroundColor:suggestion.statusColor.CGColor];
     status.textColor = suggestion.statusColor;
@@ -208,6 +210,7 @@
     UILabel *title = (UILabel *)[cell.contentView viewWithTag:TITLE];
     UILabel *section = (UILabel *)[cell.contentView viewWithTag:SECTION];
     title.text = article.question;
+    title.textColor = [UVStyleSheet instance].titleLabelColor;
     section.text = article.topicName;
 }
 

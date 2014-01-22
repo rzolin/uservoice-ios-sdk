@@ -89,7 +89,7 @@
     } else {
         UILabel *topic = [UILabel new];
         topic.font = [UIFont systemFontOfSize:12];
-        topic.textColor = [UIColor grayColor];
+        topic.textColor = [UVStyleSheet instance].detailLabelColor;
         topic.tag = TOPIC;
         [self configureView:cell.contentView
                    subviews:NSDictionaryOfVariableBindings(label, topic)
@@ -103,6 +103,7 @@
     UVArticle *article = [_articles objectAtIndex:indexPath.row];
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:LABEL];
     label.text = article.question;
+    label.textColor = [UVStyleSheet instance].detailLabelColor;
     if (!_topic) {
         UILabel *topic = (UILabel *)[cell.contentView viewWithTag:TOPIC];
         topic.text = article.topicName;
@@ -116,6 +117,7 @@
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:16];
     label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UVStyleSheet instance].detailLabelColor;
     label.tag = LOADING;
     [cell addSubview:label];
 }
@@ -123,6 +125,7 @@
 - (void)customizeCellForLoad:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath {
     UILabel *label = (UILabel *)[cell viewWithTag:LOADING];
     label.text = _loading ? NSLocalizedStringFromTable(@"Loading...", @"UserVoice", nil) : NSLocalizedStringFromTable(@"Load more", @"UserVoice", nil);
+    label.textColor = [UVStyleSheet instance].detailLabelColor;
 }
 
 - (void)showActivityIndicator {

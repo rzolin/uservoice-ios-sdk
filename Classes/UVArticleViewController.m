@@ -48,9 +48,9 @@
     _webView.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, footerHeight, 0);
 
     UIView *footer = [UIView new];
-    footer.backgroundColor = [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.0];
+    footer.backgroundColor = [UVStyleSheet instance].navigationBarBackgroundColor;
     UIView *border = [UIView new];
-    border.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.0];
+    border.backgroundColor = [UVStyleSheet instance].navigationBarBackgroundColor;
     UILabel *label = [UILabel new];
     label.text = NSLocalizedStringFromTable(@"Was this article helpful?", @"UserVoice", nil);
     label.font = [UIFont systemFontOfSize:13];
