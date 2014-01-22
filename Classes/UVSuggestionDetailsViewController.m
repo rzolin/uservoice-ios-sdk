@@ -228,12 +228,13 @@
     category.text = _suggestion.category.name ? [NSString stringWithFormat:@"%@ / %@", NSLocalizedStringFromTable(@"Feedback", @"UserVoice", nil), _suggestion.category.name] : NSLocalizedStringFromTable(@"Feedback", @"UserVoice", nil);
     category.adjustsFontSizeToFitWidth = YES;
     category.minimumScaleFactor = 0.5;
-    category.textColor = [UIColor colorWithRed:0.41f green:0.42f blue:0.43f alpha:1.0f];
+    category.textColor = [UVStyleSheet instance].titleLabelColor;
 
     UILabel *title = [UILabel new];
     title.font = [UIFont boldSystemFontOfSize:17];
     title.text = _suggestion.title;
     title.numberOfLines = 0;
+    title.textColor = [UVStyleSheet instance].detailLabelColor;
 
     UVTruncatingLabel *desc = [UVTruncatingLabel new];
     desc.font = [UIFont systemFontOfSize:14];
@@ -241,6 +242,7 @@
     desc.numberOfLines = 0;
     desc.delegate = self;
     desc.tag = SUGGESTION_DESCRIPTION;
+    desc.textColor = [UVStyleSheet instance].titleLabelColor;
 
     NSArray *constraints = @[
         @"|-16-[category]-|",
@@ -430,9 +432,9 @@
     _tableView = table;
 
     UIView *footer = [UIView new];
-    footer.backgroundColor = [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.0];
+    footer.backgroundColor = [UVStyleSheet instance].navigationBarBackgroundColor;
     UIView *border = [UIView new];
-    border.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.0];
+    border.backgroundColor = [UVStyleSheet instance].navigationBarBackgroundColor;
     if (_instantAnswers) {
         UILabel *people = [UILabel new];
         people.font = [UIFont systemFontOfSize:14];

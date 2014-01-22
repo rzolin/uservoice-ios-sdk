@@ -52,10 +52,10 @@
     _fieldsView.textView.placeholder = NSLocalizedStringFromTable(@"Description (optional)", @"UserVoice", nil);
 
     UIView *sep = [UIView new];
-    sep.backgroundColor = [UIColor colorWithRed:0.85f green:0.85f blue:0.85f alpha:1.f];
+    sep.backgroundColor = [UVStyleSheet instance].tableViewBackgroundColor;
 
     UIView *bg = [UIView new];
-    bg.backgroundColor = [UIColor colorWithRed:0.937f green:0.937f blue:0.957f alpha:1.f];
+    bg.backgroundColor = [UVStyleSheet instance].tableViewBackgroundColor;
 
     UILabel *desc = [UILabel new];
     desc.backgroundColor = [UIColor clearColor];
