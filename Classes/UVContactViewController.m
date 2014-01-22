@@ -58,6 +58,8 @@
                                                                               style:UIBarButtonItemStyleDone
                                                                              target:self
                                                                              action:@selector(next)];
+    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UVStyleSheet instance].navigationBarTextColor} forState:UIControlStateNormal];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UVStyleSheet instance].navigationBarTextColor} forState:UIControlStateNormal];
     [self loadDraft];
     self.navigationItem.rightBarButtonItem.enabled = (_fieldsView.textView.text.length > 0);
     self.view = view;

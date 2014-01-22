@@ -367,6 +367,7 @@
     [super setView:view];
     if (IOS7) {
         view.tintColor = [UVStyleSheet instance].tintColor;
+        self.navigationController.navigationBar.tintColor = [UVStyleSheet instance].navigationBarTextColor;
     }
 }
 

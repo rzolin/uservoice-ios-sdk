@@ -16,6 +16,7 @@
 #import "UVSession.h"
 #import "UVCallback.h"
 #import "UVSigninManager.h"
+#import "UVStyleSheet.h"
 
 @implementation UVCommentViewController {
     UVTextWithFieldsView *_fieldsView;
@@ -119,6 +120,8 @@
                                                                               style:UIBarButtonItemStyleDone
                                                                              target:self
                                                                              action:@selector(commentButtonTapped)];
+    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UVStyleSheet instance].navigationBarTextColor} forState:UIControlStateNormal];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UVStyleSheet instance].navigationBarTextColor} forState:UIControlStateNormal];
     [_fieldsView.textView becomeFirstResponder];
 }
 

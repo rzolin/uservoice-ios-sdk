@@ -22,4 +22,6 @@
 @property (nonatomic, retain) UIFont  *navigationBarFont;
 @property (nonatomic, retain) UIColor *loadingViewBackgroundColor;
 
+@property(nonatomic, strong) UIColor *titleLabelColor;
+@property(nonatomic, strong) UIColor *detailLabelColor;
 @end

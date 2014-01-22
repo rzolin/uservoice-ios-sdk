@@ -159,6 +159,7 @@
     UILabel *status = (UILabel *)[cell.contentView viewWithTag:STATUS];
     UIView *statusColor = [cell.contentView viewWithTag:STATUS_COLOR];
     title.text = suggestion.title;
+    title.textColor = [UVStyleSheet instance].titleLabelColor;
     subs.text = [NSString stringWithFormat:@"%d", (int)suggestion.subscriberCount];
     [statusColor.layer.sublayers.lastObject setBackgroundColor:suggestion.statusColor.CGColor];
     status.textColor = suggestion.statusColor;

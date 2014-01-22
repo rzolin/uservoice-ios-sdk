@@ -17,6 +17,7 @@
 #import "UVSuggestion.h"
 #import "UVBabayaga.h"
 #import "UVTextWithFieldsView.h"
+#import "UVStyleSheet.h"
 
 @implementation UVPostIdeaViewController {
     BOOL _proceed;
@@ -113,6 +114,8 @@
                                                                              target:self
                                                                              action:@selector(next)];
     self.navigationItem.rightBarButtonItem.enabled = (_titleField.text.length > 0);
+    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UVStyleSheet instance].navigationBarTextColor} forState:UIControlStateNormal];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName : [UVStyleSheet instance].navigationBarTextColor} forState:UIControlStateNormal];
     [self registerForKeyboardNotifications];
     _didCreateCallback = [[UVCallback alloc] initWithTarget:self selector:@selector(didCreateSuggestion:)];
     _didAuthenticateCallback = [[UVCallback alloc] initWithTarget:self selector:@selector(createSuggestion)];
